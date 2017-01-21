@@ -1,30 +1,31 @@
 {
   "name": "Maude Fernandez",
-  "id": "06ada7cd-3078-54bc-bb87-72e9d6f38abf",
+  "id": "1",
   "gender" : "male",
   "status" : "portador-obligado",
   "_parents": [
     {
       "name": "Janie Norton",
-      "id": "a39bfa73-6617-5e8e-9470-d26b68787e52",
+      "id": "2",
       "gender" : "female",
       "status" : "no-portador-mutación",
+      "marriedWith": "2",
       "_parents": [
         {
           "name": "Pearl Cannon",
-          "id": "fc956046-a5c3-502f-b853-d669804d428f",
+          "id": "3",
           "gender" : "male",
           "status" : "muerte-subita",
           "_parents": [
             {
               "name": "Augusta Miller",
-              "id": "fa5b0c07-9000-5475-a90e-b76af7693a57",
+              "id": "4",
               "gender" : "female",
               "status" : "manifestacion-fenotipica"
             },
             {
               "name": "Clayton Welch",
-              "id": "3194517d-1151-502e-a3b6-d1ae8234c647",
+              "id": "5",
               "gender" : "male",
               "status" : "sin-manifestacion-fenotipica"
             }
@@ -32,19 +33,19 @@
         },
         {
           "name": "Nell Morton",
-          "id": "06c7b0cb-cd21-53be-81bd-9b088af96904",
+          "id": "6",
           "gender" : "male",
           "status" : "muerte-otras-causas",
           "_parents": [
             {
               "name": "Lelia Hernandez",
-              "id": "667d2bb6-c26e-5881-9bdc-7ac9805f96c2",
+              "id": "7",
               "gender" : "female",
               "status" : "portador-mutacion-responsable"
             },
             {
               "name": "Randy Welch",
-              "id": "104039bb-d353-54a9-a4f2-09fda08b58bb",
+              "id": "8",
               "gender" : "male",
               "status" : "sin-manifestacion-fenotipica"
             }
@@ -54,25 +55,25 @@
     },
     {
       "name": "Helen Alvarado",
-      "id": "522266d2-f01a-5ec0-9977-622e4cb054c0",
+      "id": "9",
       "gender" : "female",
       "status" : "muerte-subita",
       "_parents": [
         {
           "name": "Gussie Glover",
-          "id": "da430aa2-f438-51ed-ae47-2d9f76f8d831",
+          "id": "10",
           "gender" : "male",
           "status" : "probando",
           "_parents": [
             {
               "name": "Mina Freeman",
-              "id": "d384197e-2e1e-5fb2-987b-d90a5cdc3c15",
+              "id": "11",
               "gender" : "female",
               "status" : "portador-mutacion-responsable"
             },
             {
               "name": "Charlotte Martin",
-              "id": "ea01728f-e542-53a6-acd0-6f43805c31a3",
+              "id": "12",
               "gender" : "female",
               "status" : "portador-mutacion-responsable"
             }
@@ -80,31 +81,31 @@
         },
         {
           "name": "Jesus Pierce",
-          "id": "bfd1612c-b90d-5975-824c-49ecf62b3d5f",
+          "id": "13",
           "gender" : "male",
           "status" : "portador-mutacion-responsable",
           "_parents": [
             {
               "name": "Donald Cox",
-              "id": "4f910be4-b827-50be-b783-6ba3249f6ebc",
+              "id": "14",
               "gender" : "male",
               "status" : "portador-mutacion-responsable"
             },
             {
               "name": "Alex Gonzales",
-              "id": "efb2396d-478a-5cbc-b168-52e028452f3b",
+              "id": "15",
               "gender" : "male",
               "status" : "muerte-subita-recuperada"
             },
             {
               "name": "Paula Gonzales",
-              "id": "efb2396d-478a-5cbc-b168-52e028452f3c",
+              "id": "16",
               "gender" : "female",
               "status" : "portador-mutacion-responsable"
             },
            {
               "name": "Paula Gonzales",
-              "id": "efb2396d-478a-5cbc-b168-52e028452f3r",
+              "id": "17",
               "gender" : "male",
               "status" : "portador-mutacion-responsable"
             }

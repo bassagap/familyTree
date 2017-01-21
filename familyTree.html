@@ -226,6 +226,7 @@ function draw(){
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide); 
   
+
   // Update the position of both old and new nodes
   node.attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
   
@@ -301,7 +302,7 @@ function elbow(d) {
   return "M" + sourceY + "," + sourceX
     + "H" + (sourceY + (targetY-sourceY)/2)
     + "V" + targetX 
-    + "H" + targetY;
+    + "H" + targetY
 }
 
 </script>
