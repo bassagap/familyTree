@@ -47,7 +47,7 @@
           autounselectify: true,
 
 					layout: {
-						name: 'dagre'
+						name: 'preset'
 					},
 
 					style: [
@@ -61,7 +61,6 @@
 								'background-color': '#11479e'
 							}
 						},
-
 						{
 							selector: 'edge',
 							style: {
@@ -71,25 +70,38 @@
 								'target-arrow-color': '#9dbaea',
 								'curve-style': 'bezier'
 							}
+						}, 
+						{
+							selector:'.relationship',
+							style: {
+								'width' :10,
+								'height': 10,
+								'content': 'data(id)',
+								'text-opacity': 0.5,
+								'text-valign': 'center',
+								'text-halign': 'right',
+								'background-color': '#B71C1C'
+							}
+
 						}
 					],
 
 					elements: {
 						nodes: [
-							{ data: { id: 'n1'  } },
-							{ data: { id: 'n2'  } },
-							{ data: { id: 'n3'  } },
-							{ data: { id: 'n4'  } },
-							{ data: { id: 'n5'  } },
-							{ data: { id: 'n6'  } },
-							{ data: { id: 'n7'  } },
-							{ data: { id: 'n8'  } },
-							{ data: { id: 'n9'  } },
-							{ data: { id: 'n10' } },
-							{ data: { id: 'n11' } },
-							{ data: { id: 'n12' } },
-							{ data: { id: 'n13' } },
-							{ data: { id: 'n14' } }
+							{ data: { id: 'n1'  }, position: {x : 4, y: 4} },
+							{ data: { id: 'n2'  }, position: {x : 80, y: 4} },
+							{ data: { id: 'n3'  }, position: {x : 42, y: 4}, classes: 'relationship' },
+							{ data: { id: 'n4'  }, position: {x : 4, y: 200} },
+							{ data: { id: 'n5'  }, position: {x : 4, y: 200} },
+							{ data: { id: 'n6'  }, position: {x : 4, y: 200} },
+							{ data: { id: 'n7'  }, position: {x : 4, y: 200}, classes: 'relationship'  },
+							{ data: { id: 'n8'  }, position: {x : 4, y: 200} },
+							{ data: { id: 'n9'  }, position: {x : 4, y: 400} },
+							{ data: { id: 'n10' }, position: {x : 4, y: 400} },
+							{ data: { id: 'n11' }, position: {x : 4, y: 400} },
+							{ data: { id: 'n12' }, position: {x : 4, y: 200} },
+							{ data: { id: 'n13' }, position: {x : 4, y: 400} },
+							{ data: { id: 'n14' }, position: {x : 4, y: 200}, classes: 'relationship'  }
 						],
 						edges: [
 							{ data: { source: 'n1',  target: 'n3'   } },
@@ -114,7 +126,7 @@
 	</head>
 
 	<body>
-		<h1>cytoscape-dagre demo</h1>
+		<h1>Cytoscape first approach</h1>
 
 		<div id="cy"></div>
 

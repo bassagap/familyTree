@@ -1,0 +1,119 @@
+<!DOCTYPE>
+
+<html>
+
+  <head>
+    <title>cytoscape-cose-bilkent.js demo (compound)</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+
+    <!-- for testing with local version of cytoscape.js -->
+    <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
+
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.0.5/cytoscape-cose-bilkent.js"></script>
+
+    <style>
+      body {
+        font-family: helvetica;
+        font-size: 14px;
+      }
+
+      #cy {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 999;
+      }
+
+      h1 {
+        opacity: 0.5;
+        font-size: 1em;
+      }
+    </style>
+
+    <script>
+      $(function(){
+
+        var cy = window.cy = cytoscape({
+          container: document.getElementById('cy'),
+
+          layout: {
+            name: 'cose-bilkent'
+          },
+
+          style: [
+            {
+              selector: 'node',
+              style: {
+                'background-color': '#ad1a66', 
+                'label' : 'data(id)'
+              }
+            },
+
+            {
+              selector: ':parent',
+              style: {
+                'background-opacity': 0.333
+              }
+            },
+
+            {
+              selector: 'edge',
+              style: {
+                'width': 3,
+                'line-color': '#ad1a66'
+              }
+            }
+          ],
+
+          elements: [
+          {"data":{"id":"n0"},"position":{"x":122.50374073928583,"y":367.98329788349827},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n0:n0","parent":"n0"},"position":{"x":209.0674320882374,"y":382.7065284623535},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n0:n1","parent":"n0"},"position":{"x":142.2888292225041,"y":382.7065284623535},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n2"},"position":{"x":467.0267020797804,"y":80.2773842699168},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n2:n0","parent":"n2"},"position":{"x":417.4178741533308,"y":125.50672352045078},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n2:n1","parent":""},"position":{"x":548.2154780707372,"y":106.01744529364254},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n2:n3","parent":"n3"},"position":{"x":420.8386954496027,"y":481.72758382436245},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n3:n0","parent":"n2"},"position":{"x":446.29982440410276,"y":298.3920866191955},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"n4:n0","parent":"n3"},"position":{"x":415.9437139883562,"y":392.69607603288597},
+          "group":"nodes","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"e1","source":"n0:n0","target":"n0:n1"},"position":{},
+          "group":"edges","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"e2","source":"n2:n0","target":"n0"},"position":{},
+          "group":"edges","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"e3","source":"n2:n1","target":"n0"},"position":{},
+          "group":"edges","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+           {"data":{"id":"e4","source":"n2:n3","target":"n0"},"position":{},
+          "group":"edges","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+           {"data":{"id":"e5","source":"n3:n0","target":"n2:n0"},"position":{},
+          "group":"edges","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""},
+          {"data":{"id":"e6","source":"n4:n0","target":"n2"},"position":{},
+          "group":"edges","removed":false,"selected":false,"selectable":true,"locked":false,"grabbed":false,"grabbable":true,"classes":""}
+         ]
+        });
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>cytoscape-cose-bilkent demo (compound)</h1>
+
+    <div id="cy"></div>
+
+  </body>
+
+</html>
