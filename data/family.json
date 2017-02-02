@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {"id": "Mama", "group": 1, "gender": "female", "status" : "no-portador-mutación"},
+    {"id": "Papa", "group": 1, "gender": "female", "status" : "muerte-subita"},
+    {"id": "R1", "group": 1, "gender": "female", "status" : "no-portador-mutación"},
+    {"id": "Fill1", "group": 2, "gender": "female", "status" : "manifestacion-fenotipica"},
+    {"id": "Fill2", "group": 2, "gender": "female", "status" : "sin-manifestacion-fenotipica"},
+    {"id": "Fill3", "group": 2, "gender": "female", "status" : "no-portador-mutación"},
+    {"id": "Marit1", "group": 2, "gender": "female", "status" : "no-portador-mutación"},
+    {"id": "R2", "group": 2, "gender": "female", "status" : "no-portador-mutación"},
+    {"id": "Fill4", "group": 3, "gender": "female", "status" : "no-portador-mutación"}  
+  ],
+  "links": [
+    {"source": "Mama", "target": "R1", "value": 1},
+    {"source": "Papa", "target": "R1", "value": 8},
+    {"source": "R1", "target": "Fill1", "value": 10},
+    {"source": "R1", "target": "Fill2", "value": 6},
+    {"source": "R1", "target": "Fill3", "value": 1},
+    {"source": "Fill1", "target": "R2", "value": 1},
+    {"source": "Marit1", "target": "R2", "value": 1},
+    {"source": "R2", "target": "Fill4", "value": 1}
+  ]
+}
