@@ -80,7 +80,7 @@ svg {
 var width = 1000,
     height = 500;
 
-  
+
 
 
 var svg = d3.select("body").append("svg")
@@ -93,34 +93,36 @@ var svg = d3.select("body").append("svg")
 
 
 var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
+    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(0.9))
+    .force("charge", d3.forceManyBody().strength(-400))
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("Y", d3.forceY().y(function(d){return 50*d.group}).strength(0.5));
-
+    .force("Y", d3.forceY().y(function(d){return 150*d.group}).strength(1));
 d3.json("data/family.json", function(error, graph) {
   if (error) throw error;
 
   var link = svg.append("g")
       .attr("class", "links")
-    .selectAll("line")
+    .selectAll("lin")
     .data(graph.links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", 2);
 
-  var node = svg.append("g")
-
-    .selectAll("circle")
+  var nodeRect = svg.selectAll(".node")
     .data(graph.nodes)
-    .enter().append("circle")
-      .attr("r", 7)
-      .attr("class", function(d) {return d.status;}) 
-      .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
+  .enter().append("rect").filter(function(d) {return d.gender === "male";})
+    .attr("width", 40)
+    .attr("height", 40)
+      .attr("class", function(d) {return d.status;})
 
-  node.append("title")
+  var nodeCircle = svg.selectAll(".node")
+    .data(graph.nodes)
+  .enter().append("circle").filter(function(d) {return d.gender === "female";})
+    .attr("r", 20)
+      .attr("class", function(d) {return d.status;})
+
+
+
+  nodeRect.append("title")
       .text(function(d) { return d.id; });
 
   simulation
@@ -133,14 +135,18 @@ d3.json("data/family.json", function(error, graph) {
 
   function ticked() {
     link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("x1", function(d) { return d.source.x + 20; })
+        .attr("y1", function(d) { return d.source.y + 20; })
+        .attr("x2", function(d) { return d.target.x + 20; })
+        .attr("y2", function(d) { return d.target.y + 20; });
 
-    node
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+    nodeRect
+    .attr("x", function(d) { return d.x; })
+    .attr("y", function(d) { return d.y; });
+
+    nodeCircle
+    .attr("cx", function(d) { return d.x + 20; })
+    .attr("cy", function(d) { return d.y + 20; });
   }
 });
 
