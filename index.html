@@ -71,19 +71,31 @@
 								'target-arrow-color': '#9dbaea',
 								'curve-style': 'bezier'
 							}
+						},
+						{
+							selector:'.relationship',
+							style: {
+								'width' :3,
+								'height': 3,
+								'text-opacity': 0.5,
+								'text-valign': 'center',
+								'text-halign': 'right',
+								'background-color': '#9dbaea'
+							}
 						}
+
 					],
 
 					elements: {
 						nodes: [
 							{ data: { id: 'n0', gender: 'ellipse' } },
 							{ data: { id: 'n1' , gender: 'rectangle'} },
-							{ data: { id: 'relation1',name:"Current relation" , gender: 'rectangle' } },
+							{ data: { id: 'relation1',name:"Current relation" , gender: 'rectangle' }, classes: "relationship"},
 							{ data: { id: 'n3', gender: 'rectangle' } },
 							{ data: { id: 'n4' , gender: 'ellipse'} },
 							{ data: { id: 'n5' , gender: 'ellipse'} },
-							{ data: { id: 'relation2' , gender: 'rectangle'} },
-							{ data: { id: 'relation3' , gender: 'rectangle'} },
+							{ data: { id: 'relation2' , gender: 'rectangle'} , classes: "relationship"},
+							{ data: { id: 'relation3' , gender: 'rectangle'} , classes: "relationship"},
 							{ data: { id: 'n6' , gender: 'rectangle'} },
 							{ data: { id: 'n7' , gender: 'ellipse'} },
 							{ data: { id: 'n8', gender: 'rectangle' } },
