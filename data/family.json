@@ -1,23 +1,32 @@
 {
   "nodes": [
-    {"id": "Mama", "group": 1, "gender": "female", "status" : "no-portador-mutación"},
-    {"id": "Papa", "group": 1, "gender": "male", "status" : "muerte-subita"},
-    {"id": "R1", "group": 1, "gender": "relation", "status" : "no-portador-mutación"},
-    {"id": "Fill1", "group": 2, "gender": "female", "status" : "manifestacion-fenotipica"},
-    {"id": "Fill2", "group": 2, "gender": "female", "status" : "sin-manifestacion-fenotipica"},
-    {"id": "Fill3", "group": 2, "gender": "female", "status" : "no-portador-mutación"},
-    {"id": "Marit1", "group": 2, "gender": "male", "status" : "no-portador-mutación"},
-    {"id": "R2", "group": 2, "gender": "relation", "status" : "no-portador-mutación"},
-    {"id": "Fill4", "group": 3, "gender": "female", "status" : "no-portador-mutación"}
+    {"id": "Mama", "group": 1, "gender": "female",  "repulsion": 6, "status" : "no-portador-mutación"},
+    {"id": "Papa", "group": 1, "gender": "male",  "repulsion": 6, "status" : "muerte-subita"},
+    {"id": "R1", "group": 1, "gender": "relation",  "repulsion": 3, "status" : "no-portador-mutación"},
+    {"id": "Fill1", "group": 2, "gender": "female",  "repulsion": 6, "status" : "manifestacion-fenotipica"},
+    {"id": "Fill2", "group": 2, "gender": "female",  "repulsion": 7, "status" : "sin-manifestacion-fenotipica"},
+    {"id": "Fill3", "group": 2, "gender": "female",  "repulsion": 6, "status" : "no-portador-mutación"},
+    {"id": "Marit1", "group": 2, "gender": "male",  "repulsion": 6, "status" : "no-portador-mutación"},
+    {"id": "R2", "group": 2, "gender": "relation",  "repulsion": 3, "status" : "no-portador-mutación"},
+    {"id": "Fill4", "group": 3, "gender": "female",  "repulsion": 6, "status" : "no-portador-mutación"},
+    {"id": "Marit2", "group": 3, "gender": "male",  "repulsion": 6, "status" : "no-portador-mutación"},
+    {"id": "R3", "group": 3, "gender": "relation",  "repulsion": 3, "status" : "no-portador-mutación"},
+    {"id": "Fill5", "group": 4, "gender": "male",  "repulsion": 6, "status" : "no-portador-mutación"},
+    {"id": "Fill6", "group": 4, "gender": "female",  "repulsion": 6, "status" : "no-portador-mutación"}
   ],
   "links": [
     {"source": "Mama", "target": "R1", "value": 1},
-    {"source": "Papa", "target": "R1", "value": 8},
-    {"source": "R1", "target": "Fill1", "value": 10},
-    {"source": "R1", "target": "Fill2", "value": 6},
+    {"source": "Papa", "target": "R1", "value": 1},
+    {"source": "R1", "target": "Fill1", "value": 1},
+    {"source": "R1", "target": "Fill2", "value": 1},
     {"source": "R1", "target": "Fill3", "value": 1},
     {"source": "Fill1", "target": "R2", "value": 1},
     {"source": "Marit1", "target": "R2", "value": 1},
-    {"source": "R2", "target": "Fill4", "value": 1}
+    {"source": "R2", "target": "Fill4", "value": 1},
+    {"source": "Fill4", "target": "R3", "value": 1},
+    {"source": "Marit2", "target": "R3", "value": 1},
+    {"source": "R3", "target": "Fill5", "value": 1},
+    {"source": "R3", "target": "Fill6", "value": 1}
   ]
+
 }

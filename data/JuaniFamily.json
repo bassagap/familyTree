@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {"id": "Carlos", "group": 1, "gender": "male", "repulsion": 1, "status" : "no-portador-mutación"},
+    {"id": "Juani", "group": 1, "gender": "female", "repulsion": 30, "status" : "muerte-subita"},
+    {"id": "Mariano", "group": 1, "gender": "male", "repulsion": 1, "status" : "no-portador-mutación"},
+    {"id": "R1", "group": 1, "gender": "relation", "repulsion": 10, "status" : "manifestacion-fenotipica"},
+    {"id": "R2", "group": 1, "gender": "relation", "repulsion": 10, "status" : "sin-manifestacion-fenotipica"},
+    {"id": "Pepe", "group": 2, "gender": "male", "repulsion": 1, "status" : "no-portador-mutación"},
+    {"id": "Loli", "group": 2, "gender": "female", "repulsion": 1, "status" : "no-portador-mutación"}
+  ],
+  "links": [
+    {"source": "Carlos", "target": "R1", "value": 1},
+    {"source": "Juani", "target": "R1", "value": 8},
+    {"source": "Mariano", "target": "R2", "value": 10},
+    {"source": "Juani", "target": "R2", "value": 6},
+    {"source": "R2", "target": "Pepe", "value": 1},
+    {"source": "R1", "target": "Loli", "value": 1}
+  ]
+}
