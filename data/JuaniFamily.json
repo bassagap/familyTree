@@ -1,10 +1,10 @@
 {
   "nodes": [
     {"id": "Carlos", "group": 1, "gender": "male", "repulsion": 1, "status" : "no-portador-mutación"},
-    {"id": "Juani", "group": 1, "gender": "female", "repulsion": 30, "status" : "muerte-subita"},
+    {"id": "Juani", "group": 1, "gender": "female", "repulsion": 1, "status" : "muerte-subita"},
     {"id": "Mariano", "group": 1, "gender": "male", "repulsion": 1, "status" : "no-portador-mutación"},
-    {"id": "R1", "group": 1, "gender": "relation", "repulsion": 10, "status" : "manifestacion-fenotipica"},
-    {"id": "R2", "group": 1, "gender": "relation", "repulsion": 10, "status" : "sin-manifestacion-fenotipica"},
+    {"id": "R1", "group": 1, "gender": "relation", "repulsion": 1, "status" : "manifestacion-fenotipica"},
+    {"id": "R2", "group": 1, "gender": "relation", "repulsion": 1, "status" : "sin-manifestacion-fenotipica"},
     {"id": "Pepe", "group": 2, "gender": "male", "repulsion": 1, "status" : "no-portador-mutación"},
     {"id": "Loli", "group": 2, "gender": "female", "repulsion": 1, "status" : "no-portador-mutación"}
   ],

@@ -93,9 +93,9 @@ var svg = d3.select("body").append("svg")
 
 
 var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(0.9))
-    .force("charge", d3.forceManyBody().strength(function(d) { return -100*d.repulsion; }))
-    .force("center", d3.forceCenter(width / 4, height / 4))
+    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(50).strength(1))
+    .force("charge", d3.forceManyBody().strength(function(d) { return -550*d.repulsion; }))
+    .force("center", d3.forceCenter(width / 2, height / 2))
     .force("Y", d3.forceY().y(function(d){return 100*d.group}).strength(1));
 d3.json("data/family.json", function(error, graph) {
   if (error) throw error;
@@ -113,22 +113,12 @@ d3.json("data/family.json", function(error, graph) {
     .attr("width", 40)
     .attr("height", 40)
       .attr("class", function(d) {return d.status;})
-      .call(d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended));
 
   var nodeCircle = svg.selectAll(".node")
     .data(graph.nodes)
   .enter().append("circle").filter(function(d) {return d.gender === "female";})
     .attr("r", 20)
       .attr("class", function(d) {return d.status;})
-      .call(d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended));
-
-
 
 
   nodeRect.append("title")
