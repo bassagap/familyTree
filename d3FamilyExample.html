@@ -2,12 +2,166 @@
 <meta charset="utf-8">
 <style>
 body {
-  font: 10px sans-serif;
+  text-align: center;
 }
 svg {
   margin-top: 32px;
   border: 1px solid #aaa;
 }
+.muerte-subita {
+  fill: #212121;
+  stroke:  #D50000;
+  stroke-width: 5px;
+
+}
+
+.muerte-otras-causas {
+  fill: #FAFAFA;
+  stroke:  #D50000;
+  stroke-width: 5px;
+
+}
+.muerte-subita-recuperada {
+  fill: #212121;
+  stroke:  #212121;
+  stroke-width: 3px;
+
+}
+.manifestacion-fenotipica {
+  fill: #E53935;
+  stroke:  #212121;
+  stroke-width: 3px;
+
+}
+.portador-mutacion-responsable {
+  fill: #E53935;
+  stroke:  #212121;
+  stroke-width: 3px;
+}
+.sin-manifestacion-fenotipica {
+  fill: #FAFAFA;
+  stroke:  #212121;
+  stroke-width: 3px;
+}
+.no-portador-mutación {
+  background-color:  #FAFAFA;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  border-color: #212121;
+  stroke-width: 3px;
+}
+.no-estudiado{
+  fill: #FAFAFA;
+  stroke:  #212121;
+  stroke-width: 3px;
+}
+.portador-obligado {
+  fill: #FAFAFA;
+  stroke:  #212121;
+  stroke-width: 3px;
+}
+.probando {
+  fill: #00B8D4;
+  stroke:  #212121;
+  stroke-width: 3px;
+}
+
 .link {
   fill: none;
   stroke: #000;
@@ -28,6 +182,7 @@ svg {
   fill: #E53935;
   stroke:  #212121;
   stroke-width: 3px;
+  }
   .d3-tip {
     line-height: 1;
     font-weight: bold;
@@ -60,6 +215,7 @@ svg {
 <div id="graph"></div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
 var tip = d3.tip()
@@ -96,6 +252,14 @@ var ky = function (d) {
   return d.y - 10;
 };
 
+var cx = function (d) {
+  return d.x - 2;
+};
+
+var cy = function (d) {
+  return d.y - 2;
+};
+
 //thie place the text x axis adjust this to center align the text
 var tx = function (d) {
   return d.x - 3;
@@ -112,8 +276,9 @@ var svg = d3.select("#graph").append("svg")
   .attr("height", height + margin.top + margin.bottom)
   .call(zoom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-svg.call(tip);
+  .call(tip)
+  .attr("transform", "translate(150,200)");
+
 
 
 //My JSON note the
@@ -126,6 +291,8 @@ var root = {
   children: [{
     name: "Mistress",
     id: 9000,
+    status: "portador-obligado",
+    gender : "female",
     no_parent: true
   }, {
     name: "",
@@ -134,11 +301,15 @@ var root = {
     hidden: true,
     children: [{
       name: "Hidden Son",
-      id: 9001
+      id: 9001,
+      status: "manifestacion-fenotipica",
+      gender : "female",
     }]
   }, {
     name: "John",
     id: 16,
+    status: "sin-manifestacion-fenotipica",
+    gender : "male",
     no_parent: true
   }, {
     name: "",
@@ -146,12 +317,11 @@ var root = {
     no_parent: true,
     hidden: true,
     children: [
-
-
       {
         name: "Jeezy",
         id: 12,
-
+        status: "muerte-otras-causas",
+        gender : "female"
       }, {
         name: "",
         id: 33,
@@ -159,15 +329,21 @@ var root = {
         hidden: true,
         children: [{
             name: "Luis",
-            id: 32
+            id: 32,
+            status: "muerte-subita",
+            gender : "male"
           }]
         },{
         name: "Leo",
         id: 13,
+        status: "probando",
+        gender : "female",
         no_parent: true
       }, {
         name: "Chopper",
-        id: 3
+        id: 3,
+        status: "portador-mutacion-responsable",
+        gender : "male"
       }, {
         name: "",
         id: 4,
@@ -176,9 +352,13 @@ var root = {
         children: [{
           name: "Dino",
           id: 5,
+          status: "muerte-subita-recuperada",
+          gender : "female"
         },{
           name: "Paula",
           id: 26,
+          status: "portador-obligado",
+          gender : "female",
           no_parent: true
         },{
           name: "",
@@ -187,34 +367,47 @@ var root = {
           hidden: true,
           children: [{
               name: "Marc",
-              id: 22
+              id: 22,
+              status: "portador-obligado",
+              gender : "male",
         }]
       },{
           name: "EazyE",
-          id: 6
+          id: 6,
+          status: "portador-obligado",
+          gender : "male"
         }]
       }, {
         name: "Khalid",
         id: 11,
+        status: "portador-obligado",
+        gender : "female",
         no_parent: true
       }, {
         name: "GFunk",
         id: 7,
+        status: "portador-obligado",
+        gender : "female",
         children: [{
           name: "Hobo",
           id: 8,
+          status: "portador-obligado",
+          gender : "female"
         }, {
           name: "Illiac",
           id: 9,
+          status: "portador-obligado",
+          gender : "female"
         }]
       }
     ]
   }, {
     name: "Megan",
     id: 10,
+    status: "portador-obligado",
+    gender : "female",
     no_parent: true,
     children: [
-
     ]
   }]
 }
@@ -292,9 +485,9 @@ svg.selectAll(".sibling")
   .attr("class", "sibling")
   .attr("d", sblingLine);
 
-// Create the node rectangles.
-nodes.append("rect")
-  .attr("class", "node")
+// Create the node rectangles for males.
+nodes.append("rect").filter(function(d) {return d.gender === "male";})
+  .attr("class", function(d) {return d.status;})
   .attr("height", 20)
   .attr("width", 20)
   .attr("id", function (d) {
@@ -311,6 +504,25 @@ nodes.append("rect")
   .attr("y", ky)
   .on('mouseover', tip.show)
   .on('mouseout', tip.hide);
+
+  // Create the node circles for females.
+  nodes.append("circle").filter(function(d) {return d.gender === "female";})
+    .attr("class", function(d) {return d.status;})
+    .attr("r", 10)
+    .attr("id", function (d) {
+      return d.id;
+    })
+    .attr("display", function (d) {
+      if (d.hidden) {
+        return "none"
+      } else {
+        return ""
+      };
+    })
+    .attr("cx", cx)
+    .attr("cy", cy)
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide);
 // Create the node text label.
 
 
