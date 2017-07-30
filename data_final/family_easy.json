@@ -1,0 +1,40 @@
+{
+  "name": "",
+  "id": 1,
+  "hidden": true,
+  "children": [{
+    "name": "Carlos",
+    "id": 16,
+    "status": "sin-manifestacion-fenotipica",
+    "gender" : "male",
+    "no_parent": true
+    }, {
+      "name": "",
+      "id": 2,
+      "no_parent": true,
+      "hidden": true,
+      "children": [{
+          "name": "JuanCa",
+          "id": 12,
+          "status": "muerte-otras-causas",
+          "gender": "female"
+          },
+          {
+          "name": "Loli",
+          "id": 7,
+          "status": "portador-obligado",
+          "gender" : "female",
+          "children": []
+          }
+        ]
+      },
+      {
+      "name": "Juani",
+      "id": 10,
+      "status": "portador-obligado",
+      "gender" : "female",
+      "no_parent": true,
+      "children": [
+      ]
+    }]
+  }

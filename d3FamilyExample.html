@@ -45,104 +45,6 @@ svg {
 }
 .no-portador-mutación {
   background-color:  #FAFAFA;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   border-color: #212121;
   stroke-width: 3px;
 }
@@ -279,142 +181,26 @@ var svg = d3.select("#graph").append("svg")
   .call(tip)
   .attr("transform", "translate(150,200)");
 
-
+var root;
 
 //My JSON note the
 //no_parent: true this ensures that the node will not be linked to its parent
 //hidden: true ensures that the nodes is not visible.
-var root = {
-  name: "",
-  id: 1,
-  hidden: true,
-  children: [{
-    name: "Mistress",
-    id: 9000,
-    status: "portador-obligado",
-    gender : "female",
-    no_parent: true
-  }, {
-    name: "",
-    id: 100,
-    no_parent: true,
-    hidden: true,
-    children: [{
-      name: "Hidden Son",
-      id: 9001,
-      status: "manifestacion-fenotipica",
-      gender : "female",
-    }]
-  }, {
-    name: "John",
-    id: 16,
-    status: "sin-manifestacion-fenotipica",
-    gender : "male",
-    no_parent: true
-  }, {
-    name: "",
-    id: 2,
-    no_parent: true,
-    hidden: true,
-    children: [
-      {
-        name: "Jeezy",
-        id: 12,
-        status: "muerte-otras-causas",
-        gender : "female"
-      }, {
-        name: "",
-        id: 33,
-        no_parent: true,
-        hidden: true,
-        children: [{
-            name: "Luis",
-            id: 32,
-            status: "muerte-subita",
-            gender : "male"
-          }]
-        },{
-        name: "Leo",
-        id: 13,
-        status: "probando",
-        gender : "female",
-        no_parent: true
-      }, {
-        name: "Chopper",
-        id: 3,
-        status: "portador-mutacion-responsable",
-        gender : "male"
-      }, {
-        name: "",
-        id: 4,
-        hidden: true,
-        no_parent: true,
-        children: [{
-          name: "Dino",
-          id: 5,
-          status: "muerte-subita-recuperada",
-          gender : "female"
-        },{
-          name: "Paula",
-          id: 26,
-          status: "portador-obligado",
-          gender : "female",
-          no_parent: true
-        },{
-          name: "",
-          id: 23,
-          no_parent: true,
-          hidden: true,
-          children: [{
-              name: "Marc",
-              id: 22,
-              status: "portador-obligado",
-              gender : "male",
-        }]
-      },{
-          name: "EazyE",
-          id: 6,
-          status: "portador-obligado",
-          gender : "male"
-        }]
-      }, {
-        name: "Khalid",
-        id: 11,
-        status: "portador-obligado",
-        gender : "female",
-        no_parent: true
-      }, {
-        name: "GFunk",
-        id: 7,
-        status: "portador-obligado",
-        gender : "female",
-        children: [{
-          name: "Hobo",
-          id: 8,
-          status: "portador-obligado",
-          gender : "female"
-        }, {
-          name: "Illiac",
-          id: 9,
-          status: "portador-obligado",
-          gender : "female"
-        }]
-      }
-    ]
-  }, {
-    name: "Megan",
-    id: 10,
-    status: "portador-obligado",
-    gender : "female",
-    no_parent: true,
-    children: [
-    ]
-  }]
-}
+d3.json('data_final/family_easy.json', function(error, json){
+
+  if(error) {
+    return console.error(error);
+  }
+  //console.log(json);
+  root = json;
+  draw();
+});
+
+function draw(){
 
 var allNodes = flatten(root);
 //This maps the siblings together mapping uses the ID using the blue line
-var siblings = [{
+var siblings = [/*{
   source: {
     id: 3,
     name: "C"
@@ -423,7 +209,7 @@ var siblings = [{
     id: 11,
     name: "K"
   }
-}, {
+},*/ /*{
   source: {
     id: 12,
     name: "L"
@@ -432,7 +218,7 @@ var siblings = [{
     id: 13,
     name: "J"
   }
-}, {
+},*/ {
   source: {
     id: 16,
     name: "Q"
@@ -441,7 +227,7 @@ var siblings = [{
     id: 10,
     name: "M"
   }
-}, {
+}/*, {
   source: {
     id: 16,
     name: "Q"
@@ -450,7 +236,7 @@ var siblings = [{
     id: 9000,
     name: "P"
   }
-}, {
+}/*, {
   source: {
     id: 6,
     name: "D"
@@ -459,7 +245,7 @@ var siblings = [{
     id: 26,
     name: "P"
   }
-}];
+}*/];
 
 // Compute the layout.
 var tree = d3.layout.tree().size([width, height]),
@@ -605,5 +391,39 @@ function elbow(d, i) {
     return d.y;
   }).interpolate("step-after");
   return fun(linedata);
+}
+}
+
+/**
+ * Update a person's state when they are clicked.
+ */
+function togglePerson(person){
+  console.log("click")
+  if(person.collapsed){
+      console.log("click_collapsed")
+    person.collapsed = false;
+  } else {
+    collapse(person);
+  }
+  draw();
+}
+
+/**
+ * Collapse person (hide their ancestors). We recursively
+ * collapse the ancestors so that when the person is
+ * expanded it will only reveal one generation. If we don't
+ * recursively collapse the ancestors then when
+ * the person is clicked on again to expand, all ancestors
+ * that were previously showing will be shown again.
+ * If you want that behavior then just remove the recursion
+ * by removing the if block.
+ */
+function collapse(person){
+  console.log("Collapse")
+  person.collapsed = true;
+  if(person._parents){
+      console.log("Parents")
+    person._parents.forEach(collapse);
+  }
 }
 </script>
